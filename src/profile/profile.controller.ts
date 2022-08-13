@@ -21,6 +21,7 @@ export class ProfileController {
 
   @Get('/')
   public async getProfile(@Body() body: { jwt: string }): Promise<any> {
+    console.log(process.env.AUTH_SVC_SERVICE_PORT);
     const authResponse = await firstValueFrom(
       this.authService.authenticate(body),
     );

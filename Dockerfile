@@ -1,8 +1,11 @@
-FROM node:18
+FROM node:14-alpine
 
-WORKDIR /usr/src/app
+WORKDIR /app
 COPY package*.json ./
 RUN npm install
+RUN npm i -g @nestjs/cli
 COPY . .
 
-CMD ['npm', 'run build']
+RUN apk --no-cache add curl
+
+CMD ["npm", "start"]

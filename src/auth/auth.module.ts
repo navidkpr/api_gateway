@@ -11,7 +11,7 @@ import { AUTH_PACKAGE_NAME, AUTH_SERVICE_NAME } from './proto/auth.pb';
         name: AUTH_SERVICE_NAME,
         transport: Transport.GRPC,
         options: {
-          url: 'localhost:50051',
+          url: process.env.AUTH_SVC_ADDRESS,
           package: AUTH_PACKAGE_NAME,
           protoPath: 'proto/auth/auth.proto',
         },
